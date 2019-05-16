@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Libraries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libraries/mysql-connector-java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/rs2xml.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
