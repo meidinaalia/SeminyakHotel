@@ -29,9 +29,11 @@ import net.proteanit.sql.DbUtils;
  * @author Meidina
  */
 public class checkin extends javax.swing.JFrame {
+    // initialise connection
     Connection conn=null;
    PreparedStatement pst= null;
    ResultSet rs=null;
+
     public checkin() {
         initComponents();
          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -43,6 +45,7 @@ public class checkin extends javax.swing.JFrame {
 
     private void Update_table() {
     try{
+
         conn=mySqlConnection.ConnectDB();
         String sql ="select * from reservation";
         pst=conn.prepareStatement(sql);
