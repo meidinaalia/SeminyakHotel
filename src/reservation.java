@@ -100,7 +100,7 @@ public class reservation extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 255, 255));
         jLabel5.setText("RoomNo:");
 
-        comboRoom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Single", "Double", "Luxury", "Delux", "Family" }));
+        comboRoom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { roomType.None.toString(), roomType.Single.toString(), roomType.Double.toString(), roomType.Luxury.toString(), roomType.Delux.toString(), roomType.Family.toString() }));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 255, 255));
@@ -203,14 +203,6 @@ public class reservation extends javax.swing.JFrame {
 
                     pst = conn.prepareStatement(qry);
                     pst.setString(1, txtName.getText());
-                    if (txtName.getText().equals("")) {
-
-                        JOptionPane.showMessageDialog(null, "Insert a Valid Data");
-                        return;
-                    }else {
-
-                        txtName.setName(txtName.getText());
-                    }
                     pst.setLong(2, Long.parseLong(txtPhone.getText()));
                     pst.setString(3, comboRoom.getSelectedItem().toString());
                     pst.setInt(4, Integer.parseInt(txtRoomNo.getText()));

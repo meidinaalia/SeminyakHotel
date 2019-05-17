@@ -499,14 +499,6 @@ public class employee extends javax.swing.JFrame {
 
             pst = conn.prepareStatement(str);
             pst.setString(1, txtname.getText());
-            if (txtname.getText().equals("")) {
-
-                JOptionPane.showMessageDialog(null, "Insert a Valid Data");
-                return;
-            }else {
-
-                txtname.setName(txtname.getText());
-            }
             pst.setLong(2, Long.parseLong(txtnic.getText()));
             pst.setLong(3, Long.parseLong(txtphone.getText()));
             pst.setString(4, txtdesig.getText());
@@ -545,22 +537,15 @@ public class employee extends javax.swing.JFrame {
             pst.setLong(3, Long.parseLong(txtphone.getText()));
             pst.setString(4, txtdesig.getText());
             pst.setString(5, txtsalary.getText());
-            
             pst.setInt(6, Integer.parseInt(lblid.getText()));
-            
-
             pst.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Employee "+txtname.getText()+" Has been Updated");
             pst.close();
-
-            
             pst.close();
             showTable();
-             txtname.setText(null);txtnic.setText(null);
-        txtphone.setText(null);txtdesig.setText(null);
-        txtsalary.setText(null);
-            
+            txtname.setText(null);txtnic.setText(null);
+            txtphone.setText(null);txtdesig.setText(null);
+            txtsalary.setText(null);
             conn.close();
         }
         catch(Exception ex)

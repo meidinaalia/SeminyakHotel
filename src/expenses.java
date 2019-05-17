@@ -371,14 +371,6 @@ public class expenses extends javax.swing.JFrame {
             pst=conn.prepareStatement(qry);
             
             pst.setString(1, txtName.getText());
-            if (txtName.getText().equals("")) {
-
-                JOptionPane.showMessageDialog(null, "Insert a Valid Data");
-                return;
-            }else {
-
-                txtName.setName(txtName.getText());
-            }
             pst.setString(2,txtPhone.getText());
             pst.setFloat(3, Float.parseFloat(txtRoomNo.getText()));
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -150,22 +152,25 @@ public class iniLogin extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         conn=mySqlConnection.ConnectDB();
         String sql = "select * from login where username=? and password=?";
-        try{
-
-            pst=conn.prepareStatement(sql);
+        try {
+            pst = conn.prepareStatement(sql);
             pst.setString(1, txtBox_username.getText());
             pst.setString(2, txtBox_password.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Welcome to Seminyak Hotel "+txtBox_username.getText());
-                this.setVisible(false);
-                main mainf = new main();
-                mainf.setVisible(true);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Access Denied - Try again ");
-                txtBox_username.setText("");
-                txtBox_password.setText("");
+            String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(txtBox_password.getText());
+            if (matcher.find()) {
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Welcome to Seminyak Hotel " + txtBox_username.getText());
+                    this.setVisible(false);
+                    main mainf = new main();
+                    mainf.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Access Denied - Try again ");
+                    txtBox_username.setText("");
+                    txtBox_password.setText("");
+                }
             }
         }
         catch(SQLException e){

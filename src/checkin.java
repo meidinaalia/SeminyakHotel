@@ -65,9 +65,7 @@ public class checkin extends javax.swing.JFrame {
                 checkinTable.setRowSorter(tr);
                 tr.setRowFilter(RowFilter.regexFilter(sql));
     }
-    
-    
-    
+
     public ArrayList<reserv> reservList()
    {
        ArrayList<reserv> reservList = new ArrayList<reserv>(); 
@@ -302,7 +300,7 @@ public class checkin extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(204, 255, 255));
         jLabel17.setText("Total:");
 
-        comboroomtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Single", "Double", "Luxury", "Delux", "Family" }));
+        comboroomtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  roomType.None.toString(), roomType.Single.toString(), roomType.Double.toString(), roomType.Luxury.toString(), roomType.Delux.toString(), roomType.Family.toString() }));
 
         txtroomno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtroomno.addActionListener(new java.awt.event.ActionListener() {
